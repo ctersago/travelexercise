@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZC_CTR_YCT_BOOKING'
+@MappingRole: true
+define role ZC_CTR_YCT_BOOKING {
+  grant select on ZC_CTR_YCT_BOOKING
+  where INHERITING CONDITIONS FROM ENTITY ZCTR_YCT_BOOKING REPLACING { ROOT WITH _BaseEntity };
+}

@@ -1,0 +1,15 @@
+@EndUserText: {
+label: 'Service Def for ZC_CTR_YCT_BOOKING'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_CTR_YCT_BOOKING'
+  }
+}
+define service ZUI_CTR_YCT_BOOKING_O4
+  provider contracts odata_v4_ui {
+  expose ZC_CTR_YCT_BOOKING as ZctrYctBooking;
+  expose ZYCT_I_Carrier;
+  expose zyct_i_connection;
+  expose zyct_i_flight;
+}

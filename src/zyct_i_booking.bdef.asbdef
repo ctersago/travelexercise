@@ -1,0 +1,58 @@
+managed implementation in class zbp_yct_i_booking unique;
+strict ( 2 );
+with draft;
+
+define behavior for zyct_i_booking alias Booking
+persistent table zyct_booking
+
+draft table zyct_booking_d
+lock master
+total etag LocalLastChangedAt
+authorization master ( global )
+etag master LocalLastChangedAt
+
+{
+  field ( mandatory : create )
+    BookingID;
+
+  field ( readonly )
+    BookingUUID,
+    CreatedBy,
+    LastChangedBy,
+    LocalLastChangedAt;
+  field ( numbering : managed )
+    BookingUUID;
+  field ( readonly : update )
+     BookingID;
+
+
+
+  create ( authorization : global );
+  update;
+  delete;
+
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZYCT_BOOKING
+  {
+    BookingUUID = BOOKING_UUID;
+    TravelUUID = TRAVEL_UUID;
+    BookingID = BOOKING_ID;
+    BookingDate = BOOKING_DATE;
+    CustomerID = CUSTOMER_ID;
+    CarrierID = CARRIER_ID;
+    ConnectionID = CONNECTION_ID;
+    FlightDate = FLIGHT_DATE;
+    FlightPrice = FLIGHT_PRICE;
+    CurrencyCode = CURRENCY_CODE;
+    CreatedBy = CREATED_BY;
+    LastChangedBy = LAST_CHANGED_BY;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+  }
+
+}

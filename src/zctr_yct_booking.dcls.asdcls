@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZCTR_YCT_BOOKING'
+@MappingRole: true
+define role ZCTR_YCT_BOOKING {
+  grant select on ZCTR_YCT_BOOKING
+  where TRUE;
+}
